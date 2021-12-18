@@ -15,8 +15,9 @@ populateTextInput();
 
 function populateTextInput() {
   const userData = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  
-	if(userData){
+
+	if(userData && Object.values(userData) !== []){
+
     form.email.value = userData.email;
     form.message.value = userData.message;
     formData.email = userData.email;
@@ -42,6 +43,5 @@ e.preventDefault();
 
    localStorage.removeItem(STORAGE_KEY);
     e.target.reset();
-	
 }
 
